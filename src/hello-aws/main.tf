@@ -101,3 +101,10 @@ resource "aws_lambda_permission" "lambda_permission" {
   principal     = "apigateway.amazonaws.com"
   source_arn = "${aws_api_gateway_deployment.MyDemoDeployment.execution_arn}/*/${var.last_path_segment}"
 }
+
+resource "aws_vpc" "vpc_demo" {
+  cidr_block = "10.0.0.0/16"
+  tags = {
+    Name = "demoaws"
+  }
+}
