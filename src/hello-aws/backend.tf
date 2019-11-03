@@ -1,6 +1,11 @@
 #Estable donde se almacenara nuestro backend
 terraform {
-  backend "local" {
-    path = "terraformAWS.tfstate"
+  backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "demosmayraespinoza"
+
+    workspaces {
+      name = "AWS-TERRAFORM"
+    }
   }
 }
